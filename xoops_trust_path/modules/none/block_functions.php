@@ -89,9 +89,9 @@ function b_none_edit($options)
     if (preg_match('/[^0-9a-zA-Z_-]/', $mydirname)) {die( 'Invalid mydirname');}
 
     $form = <<<HTML_HERE
-<input type="hidden" name="options[0]" value="{$mydirname}" />
+<input type="hidden" name="options[0]" value="{$mydirname}">
 <label for="this_template">template</label>&nbsp;
-<input type="text" size="60" name="options[1]" id="this_template" value="{$this_template}" />
+<input type="text" size="60" name="options[1]" id="this_template" value="{$this_template}">
 HTML_HERE;
 
     return $form;

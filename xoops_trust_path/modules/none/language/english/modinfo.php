@@ -1,6 +1,6 @@
 <?php
 // Module Info
-if (defined('FOR_XOOPS_LANG_CHECKER')) $mydirname = basename(dirname(dirname(dirname(__FILE__))));
+if (defined('FOR_XOOPS_LANG_CHECKER')) $mydirname = basename(dirname(__FILE__, 3));
 $constpref = '_MI_' . strtoupper($mydirname);
 
 // NONE; Nothing but templates.
@@ -10,7 +10,7 @@ if (defined('FOR_XOOPS_LANG_CHECKER') || !defined($constpref . '_LOADED')) {
     // The name of this module
     define($constpref . '_NAME', '');
     // A brief description of this module
-    define($constpref . '_DESC', 'none module w/ template');
+    define($constpref . '_DESC', 'none module with templates');
 
     define($constpref . '_BLOCK', 'block');
     define($constpref . '_BLOCK_DESC', '');

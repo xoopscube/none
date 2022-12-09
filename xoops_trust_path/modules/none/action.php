@@ -57,9 +57,9 @@ class None_Action
     public function getBreadcrumbs($text, $url = null)
     {
         $breadcrumbs[] = array(
-                               'url' => $url,
-                               'name' => htmlspecialchars($text ,ENT_QUOTES, _CHARSET)
-                               );
+            'url' => $url,
+            'name' => htmlspecialchars($text, ENT_QUOTES, _CHARSET)
+        );
         return $breadcrumbs;
     }
 }

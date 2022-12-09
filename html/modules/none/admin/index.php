@@ -1,10 +1,13 @@
 <?php
 
-require_once '../../../mainfile.php';
-if (!defined('XOOPS_TRUST_PATH')) {die('set XOOPS_TRUST_PATH in mainfile.php');}
+require '../../../mainfile.php' ;
 
-$mydirname = basename(dirname(dirname(__FILE__)));
-$mydirpath = dirname(dirname(__FILE__));
+if( ! defined( 'XOOPS_TRUST_PATH' ) ) {
+    die( 'set XOOPS_TRUST_PATH in mainfile.php' );
+}
+
+$mydirname = basename(dirname(__FILE__, 2));
+$mydirpath = dirname(__FILE__, 2);
 require $mydirpath . '/mytrustdirname.php'; // set $mytrustdirname
 
 $page = xoops_getrequest('page');

@@ -4,7 +4,7 @@ if (!file_exists($langmanpath)) {
     die('install the latest altsys');
 }
 require_once $langmanpath;
-$langman =& D3LanguageManager::getInstance();
+$langman = D3LanguageManager::getInstance();
 $langman->read('modinfo.php', $mydirname, $mytrustdirname, false);
 
 $constpref = '_MI_' . strtoupper($mydirname);
@@ -16,18 +16,25 @@ $modinfo_desc = constant($constpref . '_DESC');
 if (empty($modinfo_desc)) {
     $modinfo_desc = $mydirname;
 }
-$modversion['name'] = $modinfo_name;
-$modversion['version'] = '1.12';
-$modversion['description'] = $modinfo_desc;
-$modversion['license'] = 'GPL see LICENSE';
-$modversion['image']    = 'none.gif';
-$modversion['credits'] = 'office@ryus.co.jp';
-$modversion['author'] = 'naoto';
-$modversion['help'] = null; // -> altsys menu "help"
-$modversion['cube_style'] = true;
-$modversion['official'] = 0;
-$modversion['dirname']  = $mydirname;
+// Manifesto
+$modversion['dirname']          = $mydirname;
+$modversion['trust_dirname']    = 'lecat';
+$modversion['name']             = $modinfo_name;
+$modversion['version']          = '2.31';
+$modversion['detailed_version'] = '2.31.1';
+$modversion['description']      = $modinfo_desc;
+$modversion['author']           = 'Naoto ISHIDA';
+$modversion['credits']          = 'Naoto ISHIDA (ryus.co.jp)';
+$modversion['license']          = 'GPL';
+$modversion['image']            = 'images/module_none.svg';
+$modversion['icon']             = 'images/module_icon.svg';
+$modversion['help']             = null; // -> altsys menu "help"
+$modversion['official']         = 0;
+$modversion['cube_style']       = true;
+$modversion['read_any']         = true;
+$modversion['role']             = 'cat';
 
+// SQL install
 // Any tables can't be touched by modulesadmin.
 $modversion['sqlfile'] = false;
 $modversion['tables'] = array();
@@ -203,12 +210,12 @@ $modversion['blocks'] =
           );
 
 // keep block's options
-if (
-    !defined('XOOPS_CUBE_LEGACY')
-    && substr(XOOPS_VERSION, 6, 3) < 2.1
-    && !empty($_POST['fct']) && $_POST['fct'] == 'modulesadmin'
-    && !empty($_POST['op']) && $_POST['op'] == 'update_ok'
-    && $_POST['dirname'] == $mydirname
-    ) {
-    include dirname(__FILE__) . '/x20_keepblockoptions.inc.php';
-}
+//if (
+//    !defined('XOOPS_CUBE_LEGACY')
+//    && substr(XOOPS_VERSION, 6, 3) < 2.1
+//    && !empty($_POST['fct']) && $_POST['fct'] == 'modulesadmin'
+//    && !empty($_POST['op']) && $_POST['op'] == 'update_ok'
+//    && $_POST['dirname'] == $mydirname
+//    ) {
+//    include dirname(__FILE__) . '/x20_keepblockoptions.inc.php';
+//}

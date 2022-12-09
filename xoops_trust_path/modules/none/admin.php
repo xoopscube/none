@@ -5,6 +5,7 @@ $mytrustdirpath = dirname(__FILE__);
 
 // environment
 require_once XOOPS_ROOT_PATH  .  '/class/template.php';
+
 $module_handler =& xoops_gethandler('module');
 $xoopsModule =& $module_handler->getByDirname($mydirname);
 $config_handler =& xoops_gethandler('config');
@@ -18,13 +19,14 @@ if (
     ) die('only admin can access this area');
 
 $xoopsOption['pagetype'] = 'admin';
+
 require XOOPS_ROOT_PATH . '/include/cp_functions.php';
 
 // initialize language manager
 $langmanpath = XOOPS_TRUST_PATH . '/libs/altsys/class/D3LanguageManager.class.php';
 if (!file_exists($langmanpath)) die('install the latest altsys');
 require_once $langmanpath;
-$langman =& D3LanguageManager::getInstance();
+$langman = D3LanguageManager::getInstance();
 
 
 if (!empty($_GET['lib'])) {
@@ -55,7 +57,7 @@ if (!empty($_GET['lib'])) {
     $page = preg_replace('/[^a-zA-Z0-9_-]/', '', @$_GET['page']);
 
     xoops_cp_header();
-    include dirname(__FILE__) . '/mymenu.php';
+    include dirname(__FILE__) . '/admin/mymenu.php';
 
     $root =& XCube_Root::getSingleton();
     $root->mController->execute();
